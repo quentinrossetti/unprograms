@@ -1,4 +1,3 @@
-publish to OpenPrograms
 update test suite
 x cleanup API and fix state bug (using require the state is conserved between tests runs)
 x fix readme image

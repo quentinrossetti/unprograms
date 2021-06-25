@@ -6,9 +6,5 @@ file = {
     "undesk/src/",
     "untest/src/"
 }
-examples = {
-    "libun/examples",
-    "undesk/examples",
-    "untest/examples"
-}
+examples = {"examples"}
 dir = "ldoc"

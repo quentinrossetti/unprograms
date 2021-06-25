@@ -1,7 +1,7 @@
 <h1 align="center">untest</h1>
 <p align="center">Uncomplicated Testing for OpenComputers</p>
 
-![screenshot](doc/readme.png)
+![screenshot](../resources/readme.png)
 
 ## Install
 
@@ -56,8 +56,8 @@ Now we can modify `super_inventory.lua`, add features and such. If we
 somehow break the program the test will tell us! All we have to do is to 
 run this file.
 
- - [API documentation](https://quentinrossetti.github.io/untest)
- - [How to use hooks](https://quentinrossetti.github.io/untest/examples/2-hooks.lua.html)
- - [How to use timeout](https://quentinrossetti.github.io/untest/examples/3-timeout.lua.html) 
+ - [API documentation](https://quentinrossetti.github.io/unprograms/modules/untest.html)
+ - [How to use hooks](https://quentinrossetti.github.io/unprograms/examples/untest_2_hooks.lua.html)
+ - [How to use timeout](https://quentinrossetti.github.io/unprograms/examples/untest_3_timeout.lua.html) 
 ***
 With :heart: from [quentinrossetti](https://github.com/quentinrossetti/)
