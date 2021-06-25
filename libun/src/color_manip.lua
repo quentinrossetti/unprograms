@@ -41,7 +41,7 @@ function color_manip.distance(c1_dec, c2_dec)
 end
 
 --- Convert a RGB color in decimal reprensentation into it's clostest ANSI code
--- Colors based on [xterm](Whttps://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit).
+-- Colors based on [xterm](https://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit).
 -- Algorithm based on [CompuPhase article](https://www.compuphase.com/cmetric.htm).
 -- @tparam number c_dec RGB color as a decimal reprensentation.
 -- @return number Clostest ANSI color code.

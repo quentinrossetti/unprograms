@@ -6,13 +6,13 @@
         {
             "label": "doc",
             "type": "shell",
-            "command": "ldoc libun;ldoc undesk;ldoc untest",
+            "command": "ldoc .",
             "problemMatcher": []
         },
         {
             "label": "doc-deploy",
             "type": "shell",
-            "command": "git subtree push --prefix doc origin gh-pages"
+            "command": "git subtree push --prefix ldoc origin gh-pages"
         },
     ]
 }

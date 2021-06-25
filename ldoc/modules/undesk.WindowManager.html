@@ -38,12 +38,21 @@
 
 <h2>Modules</h2>
 <ul class="nowrap">
+  <li><a href="../modules/30log.html">30log</a></li>
+  <li><a href="../modules/color_manip.html">color_manip</a></li>
   <li><a href="../modules/undesk.Bar.html">undesk.Bar</a></li>
   <li><a href="../modules/undesk.Init.html">undesk.Init</a></li>
   <li><a href="../modules/undesk.html">undesk</a></li>
   <li><a href="../modules/undesk.Window.html">undesk.Window</a></li>
   <li><strong>undesk.WindowManager</strong></li>
   <li><a href="../modules/undesk.Workspace.html">undesk.Workspace</a></li>
+  <li><a href="../modules/untest.html">untest</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/untest_1_tutorial.lua.html">untest_1_tutorial.lua</a></li>
+  <li><a href="../examples/untest_2_hooks.lua.html">untest_2_hooks.lua</a></li>
+  <li><a href="../examples/untest_3_timeout.lua.html">untest_3_timeout.lua</a></li>
 </ul>
 
 </div>
@@ -52,14 +61,16 @@
 
 <h1>Module <code>undesk.WindowManager</code></h1>
 <p>Uncomplicated Desktop for OpenComputers.</p>
-<p><ul>
-<li><a href="https://github.com/quentinrossetti/undesk">Homepage</a></li>
-<li><a href="https://quentinrossetti.github.io/undesk">API documentation</a></li>
+<p>
+
+<ul>
+    <li><a href="https://github.com/quentinrossetti/undesk">Homepage</a></li>
+    <li><a href="https://quentinrossetti.github.io/undesk">API documentation</a></li>
 </ul>
 </p>
     <h3>Info:</h3>
     <ul>
-        <li><strong>Copyright</strong>: 2020 Quentin Rossetti <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#100;&#101;&#64;&#98;&#108;&#101;&#117;&#46;&#103;&#100;&#110;">&#99;&#111;&#100;&#101;&#64;&#98;&#108;&#101;&#117;&#46;&#103;&#100;&#110;</a></li>
+        <li><strong>Copyright</strong>: 2020 Quentin Rossetti <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;c&#111;&#x64;&#101;&#x40;&#98;&#x6c;&#101;&#x75;.&#103;&#x64;&#110;">&#x63;&#111;&#x64;&#101;&#x40;&#98;&#x6c;e&#117;&#x2e;&#103;&#x64;&#110;</a></li>
         <li><strong>License</strong>: ICS</li>
     </ul>
 
@@ -67,8 +78,8 @@
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#addScreen">addScreen (screen_label, gpu_slot, screen_address)</a></td>
-	<td class="summary">Tell <strong>undesk</strong> wich GPU and screens to use</td>
+	<td class="name" nowrap><a href="#addDisplay">addDisplay (label, gpu_slot, screen_address)</a></td>
+	<td class="summary">Tell <strong>undesk</strong> wich GPU and screens to use.</td>
 	</tr>
 </table>
 
@@ -80,36 +91,38 @@
 
     <dl class="function">
     <dt>
-    <a name = "addScreen"></a>
-    <strong>addScreen (screen_label, gpu_slot, screen_address)</strong>
+    <a name = "addDisplay"></a>
+    <strong>addDisplay (label, gpu_slot, screen_address)</strong>
     </dt>
     <dd>
-    Tell <strong>undesk</strong> wich GPU and screens to use
+    Tell <strong>undesk</strong> wich GPU and screens to use.  A GPU-screen bound is called
+ a <em>display</em>
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">screen_label</span>
-            <span class="types"><span class="type">number</span></span>
-         Give the sceen an label
+        <li><span class="parameter">label</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Give the display a label
         </li>
         <li><span class="parameter">gpu_slot</span>
             <span class="types"><span class="type">number</span></span>
-        <p> The GPU to bind the screen to. OpenOS uses the
+
+<p> The GPU to bind the screen to. OpenOS uses the
  following slot numbers:</p>
 
 <ul>
-<li>0 : GPU card in the to slot</li>
-<li>1 : GPU card in the middle slot</li>
-<li>2 : GPU card in the bottom slot (only on computers tier 2+)</li>
-<li>6 : APU (only computers tier 2)</li>
-<li>8 : APU (only computers tier 3+)</li>
+    <li>0 : GPU card in the to slot</li>
+    <li>1 : GPU card in the middle slot</li>
+    <li>2 : GPU card in the bottom slot (only on computers tier 2+)</li>
+    <li>6 : APU (only computers tier 2)</li>
+    <li>8 : APU (only computers tier 3+)</li>
 </ul>
 
         </li>
         <li><span class="parameter">screen_address</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-         Screen to bind the APU/GPU to
+         Screen to bind
         </li>
     </ul>
 
@@ -120,7 +133,7 @@
     <ul>
         <pre class="example"><span class="comment">-- Use an Analyser to copy the screen address
 </span><span class="comment">-- bind the APU of this computer to a screen.
-</span>wm.addScreen(<span class="string">"power_control_room"</span>, <span class="number">8</span>, <span class="string">"4d14b7c9-6ae5-4fcf-8c0f-979d99a8b615"</span>)</pre>
+</span>wm.addDisplay(<span class="string">"power_control_room"</span>, <span class="number">8</span>, <span class="string">"4d14b7c9-6ae5-4fcf-8c0f-979d99a8b615"</span>)</pre>
     </ul>
 
 </dd>
@@ -131,7 +144,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2020-07-18 21:47:45 </i>
+<i style="float:right;">Last updated 2021-06-25 20:50:06 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

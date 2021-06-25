@@ -1,5 +1,0 @@
-{
-    "triggerTaskOnSave.tasks": {
-        "doc": ["src/*.lua"],
-    }
-}
