@@ -1,0 +1,19 @@
+publish to OpenPrograms
+update test suite
+x cleanup API and fix state bug (using require the state is conserved between tests runs)
+x fix readme image
+x exit codes
+x implement TAP reporter https://testanything.org/. Not relevant in the OC context
+x traceback display if needed
+x do I need the trace outside of the coroutine? (see comment)
+x timeout option
+x implement OpenPrograms
+x what happens when overflow max color depth? (it displays all the colors)
+x functions that have multiples returns
+x recursive `describe()`. Nop, to much hassle! https://medium.com/better-programming/yagni-you-aint-gonna-need-it-f9a178cd8e1
+x limit depth to 8 to avoid stack overflow errors and misusage (see task above)
+x document API using ldoc
+x pass stack (numbers) arguments to functions
+x pass heap (objects, functions) arguments to functions
+x before, after, beforeEach and afterEach support
+x mock api for cross-platform testing. Nop, just test in OpenComputers, don'treimplement the reimplementation :)

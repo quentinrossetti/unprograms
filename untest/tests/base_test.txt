@@ -1,0 +1,17 @@
+v should number
+x 2) should oops
+  /home/develop/untest/base_test.lua:24: oops
+x 3) should return a sum
+  /home/develop/untest/base_test.lua:35: assertion failed!
+
+suite 1
+x 4) sub test 4
+  /home/develop/untest/base_test.lua:24: oops
+v sub test 5
+
+suite 2
+v sub test 6
+v sub test 7
+
+v 4 tests passed
+x 3 tests failed

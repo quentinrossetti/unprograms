@@ -1,0 +1,10 @@
+
+suite
+x 1) normal error
+  /home/develop/untest/timeout_test.lua:26: custom error
+end mock_f_short
+v short test
+x 3) test taking too long
+  timeout of 2 s exceeded
+end mock_f_long
+v specified timeout

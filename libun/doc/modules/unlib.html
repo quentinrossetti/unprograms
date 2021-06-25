@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>libun</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/30log.html">30log</a></li>
+  <li><strong>unlib</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>unlib</code></h1>
+<p>Color manipulation, calculations and conversions</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: 2020 Quentin Rossetti <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;c&#111;&#x64;&#101;&#x40;&#98;&#x6c;&#101;&#x75;.&#103;&#x64;&#110;">&#x63;&#111;&#x64;&#101;&#x40;&#98;&#x6c;e&#117;&#x2e;&#103;&#x64;&#110;</a>,2019–2020 Thiadmer Riemersma, CompuPhase</li>
+        <li><strong>License</strong>: ICS</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#color_manip.dec_to_rgb">color_manip.dec_to_rgb (c_dec)</a></td>
+	<td class="summary">Convert a RGB color in decimal reprensentation into it's 3 values (red,
+ green and blue)</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#color_manip.distance">color_manip.distance (c1_dec, c2_dec)</a></td>
+	<td class="summary">Calculate the distance between two colors in RGB space using the low-cost
+ approximation without gamma correction.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#color_manip.dec_to_ansi">color_manip.dec_to_ansi (c_dec)</a></td>
+	<td class="summary">Convert a RGB color in decimal reprensentation into it's clostest ANSI code
+ Colors based on <a href="Whttps://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit">xterm</a>.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "color_manip.dec_to_rgb"></a>
+    <strong>color_manip.dec_to_rgb (c_dec)</strong>
+    </dt>
+    <dd>
+    Convert a RGB color in decimal reprensentation into it's 3 values (red,
+ green and blue)
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">c_dec</span>
+            <span class="types"><span class="type">number</span></span>
+         RGB color as a decimal reprensentation.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+        number Red value [0, 255]</li>
+        <li>
+        number Green value [0, 255]</li>
+        <li>
+        number Blue value [0, 255]</li>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">dec_to_rgb(<span class="number">0xb3310</span>)
+<span class="comment">--&gt; 11      51      16</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "color_manip.distance"></a>
+    <strong>color_manip.distance (c1_dec, c2_dec)</strong>
+    </dt>
+    <dd>
+    Calculate the distance between two colors in RGB space using the low-cost
+ approximation without gamma correction.  Algorithm based on <a href="https://www.compuphase.com/cmetric.htm">CompuPhase article</a>
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">c1_dec</span>
+            <span class="types"><span class="type">number</span></span>
+         Color 1 as a decimal reprensentation.
+        </li>
+        <li><span class="parameter">c2_dec</span>
+            <span class="types"><span class="type">number</span></span>
+         Color 2 as a decimal reprensentation.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        number Distance between color A and B. The max distance is <code>442.40365741453</code>
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">distance(<span class="number">0xb3310</span>, <span class="number">0x174bff</span>)
+<span class="comment">--&gt; 412.24779221665</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "color_manip.dec_to_ansi"></a>
+    <strong>color_manip.dec_to_ansi (c_dec)</strong>
+    </dt>
+    <dd>
+    Convert a RGB color in decimal reprensentation into it's clostest ANSI code
+ Colors based on <a href="Whttps://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit">xterm</a>.
+ Algorithm based on <a href="https://www.compuphase.com/cmetric.htm">CompuPhase article</a>.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">c_dec</span>
+            <span class="types"><span class="type">number</span></span>
+         RGB color as a decimal reprensentation.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        number Clostest ANSI color code.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> ansi_foreground = <span class="string">"\27["</span>..<span class="global">tostring</span>(dec_to_ansi(<span class="number">0x174bff</span>))..<span class="string">"m"</span>
+<span class="keyword">local</span> ansi_background = <span class="string">"\27["</span>..<span class="global">tostring</span>(dec_to_ansi(<span class="number">0x174bff</span>)+<span class="number">10</span>)..<span class="string">"m"</span>
+<span class="global">print</span>(<span class="string">"\27[0m"</span>) <span class="comment">-- reset</span></pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2020-05-15 22:31:38 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
