@@ -1,7 +1,7 @@
 ------------
 -- Uncomplicated Testing for OpenComputers.
--- - [Homepage](https://github.com/quentinrossetti/untest)
--- - [API documentation](https://quentinrossetti.github.io/untest)
+-- - [Homepage](https://github.com/quentinrossetti/unprograms/tree/master/untest)
+-- - [API documentation](https://quentinrossetti.github.io/unprograms/modules/untest.html)
 -- @module untest
 -- @license ICS 
 -- @copyright 2020 Quentin Rossetti <code@bleu.gdn>
@@ -62,7 +62,7 @@ local function print_trace(tb)
   color_reset()
 end
 
-function close()
+local function close()
   deps.write("\n")
   local exit_code = true
   if context.passed >= 0 then
@@ -127,7 +127,7 @@ function it(title, f, timeout)
     context.failed = context.failed+1
     context.tb[context.test_id_current] = debug.traceback(co)
     print_title(title, err)
-    if untest.trace then print_trace(context.tb[context.test_id_current]) end
+    -- if untest.trace then print_trace(context.tb[context.test_id_current]) end
   end
   after_each()
 end
