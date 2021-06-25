@@ -6,7 +6,7 @@
         {
             "label": "doc",
             "type": "shell",
-            "command": "ldoc .",
+            "command": "ldoc libun;ldoc undesk;ldoc untest",
             "problemMatcher": []
         },
         {
