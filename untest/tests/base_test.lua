@@ -6,7 +6,7 @@ local CHECKFILE_NAME = "base_test.txt"
 local CHECKFILE_GENERATION = false
 -- Set to true to produce actual results. Set to false to simply run the dummy 
 -- suite. (default: true)
-local DEPENDENCY_INJECTION = true
+local DEPENDENCY_INJECTION = false
 
 -- Test setup
 -- ----------
@@ -20,9 +20,9 @@ if DEPENDENCY_INJECTION then
 else
   untest = require("untest")
 end
-function mock_f_number() return 42 end
-function mock_f_oops() error("oops") end
-function mock_f_ab(a, b) return a+b end 
+local function mock_f_number() return 42 end
+local function mock_f_oops() error("oops") end
+local function mock_f_ab(a, b) return a+b end 
 
 local it = untest.it
 local describe = untest.describe
@@ -32,7 +32,7 @@ local describe = untest.describe
 it("should number", mock_f_number)
 it("should oops", mock_f_oops)
 it("should return a sum", function ()
-  assert(mock_f_ab(3,5) == 9)
+  assert(mock_f_ab(3,5) == 8)
 end)
 describe("suite 1", function ()
   it("sub test 4", mock_f_oops)

@@ -21,9 +21,9 @@ if DEPENDENCY_INJECTION then
 else
   untest = require("untest")
 end
-function mock_f_long() os.sleep(3); di.write("end mock_f_long\n") end
-function mock_f_short() di.write("end mock_f_short\n") end
-function mock_f_error() error("custom error") end
+local function mock_f_long() os.sleep(3); di.write("end mock_f_long\n") end
+local function mock_f_short() di.write("end mock_f_short\n") end
+local function mock_f_error() error("custom error") end
 
 local it = untest.it
 local describe = untest.describe
