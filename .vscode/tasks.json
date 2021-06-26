@@ -12,7 +12,7 @@
         {
             "label": "doc-deploy",
             "type": "shell",
-            "command": "git subtree push --prefix ldoc origin gh-pages"
+            "command": "git subtree push --prefix ldoc origin ldoc"
         },
     ]
 }
