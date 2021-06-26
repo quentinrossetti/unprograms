@@ -119,7 +119,7 @@ function it(title, f, timeout)
   end)
 
   deps.thread.waitForAny({timer_thread, f_thread})
-  if f_thread:status()=="running" then
+  if f_thread:status() == "running" then
     f_thread:kill()
     _, err = pcall(error, 'timeout of '..timeout..' s exceeded')
   else
