@@ -1,4 +1,4 @@
-document global injections
+x document global injections
 x update test suite
 x timeout option
 x cleanup API and fix state bug (using require the state is conserved between tests runs)

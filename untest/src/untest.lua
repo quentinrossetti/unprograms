@@ -4,7 +4,7 @@
 -- - [API documentation](https://quentinrossetti.github.io/unprograms/modules/untest.html)
 -- @module untest
 -- @license ICS 
--- @copyright 2020 Quentin Rossetti <code@bleu.gdn>
+-- @copyright 2020-2021 Quentin Rossetti <code@bleu.gdn>
 
 -- Dependency injection
 -- --------------------
@@ -164,7 +164,8 @@ function describe(title, f)
   f()
 end
 
---- Runs some shared setup before each test
+--- Runs some shared setup before each test. This function is global, you can 
+-- call it from anywhere.
 -- @function before_each
 -- @usage
 -- before_each = function ()
@@ -173,7 +174,8 @@ end
 -- end
 before_each = function () end
 
---- Runs some shared teardown after each test
+--- Runs some shared teardown after each test. This function is global, you can
+-- call it from anywhere.
 -- @function after_each
 -- @usage
 -- after_each = function ()
