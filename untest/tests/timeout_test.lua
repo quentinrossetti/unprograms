@@ -1,32 +1,26 @@
+-- This file compares the output of a collection of test suits agains a pre-
+-- generated and pre-validated file. Basically it ensures that 
+-- `stdout==checkfile.txt`
+
 -- Configuration
 -- -------------
 
-local CHECKFILE_NAME = "timeout_test.txt"
+local CHECKFILE_NAME = debug.getinfo(2, "S").source:sub(2):sub(1,-4).."txt"
 -- If the checkfile has to be regenerated. (default: false)
 local CHECKFILE_GENERATION = false
--- Set to true to produce actual results. Set to false to simply run the dummy 
--- suite. (default: true)
-local DEPENDENCY_INJECTION = true
 
 -- Test setup
 -- ----------
-local untest = nil
+
 local buffer = ""
 local di = {}
-if DEPENDENCY_INJECTION then
-  di.write = function(s) buffer = buffer..s end
-  di.gpu = require("component").gpu
-  di.thread = require("thread")
-  untest = loadfile("/usr/lib/untest.lua")(di)
-else
-  untest = require("untest")
-end
+di.write = function (s) buffer = buffer..s end
+di.gpu = require("component").gpu
+local close = loadfile("/usr/bin/untest.lua")(di)
+
 local function mock_f_long() os.sleep(3); di.write("end mock_f_long\n") end
 local function mock_f_short() di.write("end mock_f_short\n") end
 local function mock_f_error() error("custom error") end
-
-local it = untest.it
-local describe = untest.describe
 
 -- Run tests
 -- ---------
@@ -37,6 +31,7 @@ describe("suite", function ()
   it("test taking too long", mock_f_long)
   it("specified timeout", mock_f_long, 4)
 end)
+close()
 
 -- Test results
 -- ------------

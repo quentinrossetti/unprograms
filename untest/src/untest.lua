@@ -10,7 +10,12 @@
 -- --------------------
 
 local deps = ({...})[1]
-if type(deps) == "string" then deps = {} end
+local test_file = nil
+-- If no dependecy injection is used
+if type(deps) == "string" then
+  test_file = deps
+  deps = {}
+end
 deps.gpu    = deps.gpu    or require("component").gpu
 deps.write  = deps.write  or require("term").write
 deps.thread = deps.thread or require("thread")
@@ -28,6 +33,8 @@ local color_reset = function () color_bg(); color_fg(); end
 
 -- Internals
 -- ---------
+
+local context = nil
 
 local function create_context()
   return {
@@ -76,7 +83,7 @@ local function close()
   end
   deps.write("\n")
   color_reset()
-  os.exit(exit_code, true)
+  -- os.exit(exit_code, true)
 end
 
 -- Public API
@@ -127,7 +134,7 @@ function it(title, f, timeout)
     context.failed = context.failed+1
     context.tb[context.test_id_current] = debug.traceback(co)
     print_title(title, err)
-    -- if untest.trace then print_trace(context.tb[context.test_id_current]) end
+    if context.trace then print_trace(context.tb[context.test_id_current]) end
   end
   after_each()
 end
@@ -157,16 +164,6 @@ function describe(title, f)
   f()
 end
 
-
---- Stores infos about the current test run.
--- @table context
--- @tfield number timeout Max amount of seconds to wait for each test.
--- @tfield boolean trace If a traceback has to be displayed
--- @usage
--- context.timeout = 4 -- wait 4 seconds before stopping a test.
--- context.trace = true -- print the traceback of errors
-context = create_context()
-
 --- Runs some shared setup before each test
 -- @function before_each
 -- @usage
@@ -187,8 +184,14 @@ after_each = function () end
 -- Runtime
 -- -------
 
+local pretty = require("develop").pretty
 local args, ops = deps.shell.parse(...)
+context = create_context()
 if ops.timeout then context.timeout = tonumber(ops.timeout) end
 if ops.trace == "true" then context.trace = true end
-dofile(args[1])
-close()
+if test_file then 
+  dofile(test_file)
+  close()
+end
+
+return close

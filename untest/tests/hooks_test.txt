@@ -1,16 +1,20 @@
 
 suite 1
 before_each: n°1
-v sub test A
+  v sub test A
 after_each: n°1
 before_each: n°2
-v sub test B
+  v sub test B
 after_each: n°2
 
 suite 2
 before_each: n°3
-v sub test C
+  v sub test C
 after_each: n°3
 before_each: n°4
-v sub test D
+  v sub test D
 after_each: n°4
+
+v 4 tests passed
+x 0 tests failed
+

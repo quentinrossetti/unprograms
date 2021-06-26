@@ -20,8 +20,8 @@ if DEPENDENCY_INJECTION then
 else
   untest = require("untest")
 end
-lcoal function mock_f_number() return 42 end
-lcoal function mock_f_oops() error("oops") end
+local function mock_f_number() return 42 end
+local function mock_f_oops() error("oops") end
 
 local it = untest.it
 local describe = untest.describe
