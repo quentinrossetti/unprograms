@@ -186,7 +186,6 @@ after_each = function () end
 -- Runtime
 -- -------
 
-local pretty = require("develop").pretty
 local args, ops = deps.shell.parse(...)
 context = create_context()
 if ops.timeout then context.timeout = tonumber(ops.timeout) end
