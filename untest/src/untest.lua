@@ -10,11 +10,11 @@
 -- --------------------
 
 local deps = ({...})[1]
-if type(deps)=="string" then deps = {} end
-deps.gpu = deps.gpu or require("component").gpu
-deps.write = deps.write or require("term").write
+if type(deps) == "string" then deps = {} end
+deps.gpu    = deps.gpu    or require("component").gpu
+deps.write  = deps.write  or require("term").write
 deps.thread = deps.thread or require("thread")
-deps.shell = deps.shell or require("shell")
+deps.shell  = deps.shell  or require("shell")
 
 -- Configuration
 -- -------------
@@ -31,15 +31,15 @@ local color_reset = function () color_bg(); color_fg(); end
 
 local function create_context()
   return {
-    before_each = function () end,
-    after_each = function() end,
-    timeout = 2,
-    trace = false,
-    passed=0,
-    failed=0,
-    test_id_current=0,
-    test_id_failed={},
-    tb={},
+    before_each     = function () end,
+    after_each      = function () end,
+    timeout         = 2,
+    trace           = false,
+    passed          = 0,
+    failed          = 0,
+    test_id_current = 0,
+    test_id_failed  = {},
+    tb              = {},
   }
 end
 
@@ -189,6 +189,6 @@ after_each = function () end
 
 local args, ops = deps.shell.parse(...)
 if ops.timeout then context.timeout = tonumber(ops.timeout) end
-if ops.trace=="true" then context.trace = true end
+if ops.trace == "true" then context.trace = true end
 dofile(args[1])
 close()
